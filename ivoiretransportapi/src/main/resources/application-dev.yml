@@ -1,7 +1,7 @@
 spring:
   datasource:
     driverClassName: org.h2.Driver
-    url: jdbc:h2:file:~/bsn
+    url: jdbc:h2:file:~/itdb
     username: sa
     password: 12345
   h2:

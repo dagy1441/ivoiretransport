@@ -1,4 +1,4 @@
-package com.example.ivoiretransport_api;
+package com.example.ivoiretransportapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
