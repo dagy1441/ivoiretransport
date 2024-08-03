@@ -1,5 +1,8 @@
 package com.example.ivoiretransportapi.features.user;
 
+import com.example.ivoiretransportapi.features.baggage.Baggage;
+import com.example.ivoiretransportapi.features.courier.Courier;
+import com.example.ivoiretransportapi.features.reservation.Reservation;
 import com.example.ivoiretransportapi.features.role.Role;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -26,6 +29,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static jakarta.persistence.FetchType.EAGER;
@@ -54,6 +58,15 @@ public class User implements UserDetails, Principal {
     private String photo;
     @ManyToMany(fetch = EAGER)
     private List<Role> roles;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Reservation> reservations;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Baggage> baggages;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Courier> couriers;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
